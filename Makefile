@@ -1,6 +1,6 @@
 CCX=gcc
 
-CXXFLAGS= -g
+CXXFLAGS= -ggdb -fno-stack-protector
 
 OBJS =  main.c
 all: ${OBJS}

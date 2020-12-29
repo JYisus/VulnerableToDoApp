@@ -16,6 +16,8 @@
  * =====================================================================================
  */
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #define FALSE 0
 #define TRUE 1
 #define TASKS_LIMIT 10
@@ -54,13 +56,12 @@ void printTasks(int numberOfTasks, Task tasks[TASKS_LIMIT])
 	}
 }
 
-char* inputTask()
+void inputTask(char newTask[256])
 {
-	char task[256];
 	printf("\\h: Help\t\\c: Complete\t\\d: Delete\t\\q: Close\n\n");
 	printf("> ");
-	gets(task);
-	return task;
+	gets(newTask);
+
 }
 
 int getTaskNumber(char* taskInput)
@@ -127,7 +128,9 @@ int main(int argc, char **argv)
 			printf("Reached limit of tasks\n");
 		}
 
-		char *newTask = inputTask();
+		char newTask[256];
+
+		inputTask(newTask);
 
 		if(strcmp(newTask, "\\q") == 0)
 		{
